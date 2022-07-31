@@ -199,3 +199,4 @@ ansible-playbook ~/myscripts/ex4.yaml
 	   #############################################
 		
 		exit
+ 
