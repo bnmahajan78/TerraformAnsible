@@ -61,27 +61,32 @@ cat ~/.ssh/authorized_keys
  ############################################################
  
 # from window
-# scp -i .\25july.pem .\src\* ubuntu@$out:~/tf/
+# scp -i .\25july.pem .\src\* ubuntu@54.175.58.210:~/tf/
  
+ 
+ ## Go to ubuntu
  #cmdd2="sudo echo   export PATH=$PATH:/home/ubuntu/tf  | sudo -S tee -a ~/.bashrc"
- #ssh -i ..\25july.pem  ubuntu@$out  "$cmdd2"
-## or 
+ # ssh -i ~/.ssh/custkey  ubuntu@54.175.58.210  "$cmdd2"
+ ## or 
  #sudo vi ~/.bashrc
  ##export PATH=$PATH:/home/ubuntu/tf
  
- # cp ~/.ssh/custkey.pvt  ~/myscripts
-#  cp ~/tf/deployansible.sh   ~/myscripts/deployansible.sh 
+ ##  source ~/.bashrc 
+ 
+ #  cp ~/.ssh/custkey.pvt  ~/myscripts
+ #  cp ~/tf/deployansible.sh   ~/myscripts/deployansible.sh 
  #  cp ~/tf/sub1.sh   ~/myscripts/sub1.sh 
    
     ############################################################
 	
 	
-	## Create key in aws
+	## Create  custkey in aws
+	## cat ~/.ssh/custkey.pub
 
 	
    ############################################################
-	
-## Go to ~/tf	
+## clear	
+## cd ~/tf	
 ##	terraform init
 ##	terraform plan
 ##   terraform apply
