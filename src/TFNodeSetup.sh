@@ -2,37 +2,29 @@
 ######################################################
 ## TF node Set up
 ######################################################
-
-
+ 
  sudo apt update -y
  sudo apt upgrade -y
  sudo apt install unzip -y
+ 
+ out=$(curl ifconfig.me  )
+ssh $out -o  StrictHostKeyChecking=no  -o ControlMaster=no  </dev/null
+ 
  
 mkdir myscripts
 mkdir tf
 chmod 777 myscripts/
 chmod 777 tf/
 cd myscripts/
-
+ 
 cd ..
 cd tf/
- touch main.tf
- touch provider.tf
- touch terraform.tfvars
- 
+  
  wget https://releases.hashicorp.com/terraform/1.2.4/terraform_1.2.4_linux_amd64.zip
  unzip terraform_1.2.4_linux_amd64.zip
  rm terraform_1.2.4_linux_amd64.zip
- #sudo vi ~/.bashrc
- ##export PATH=$PATH:/home/ubuntu/tf
-#cd ..
-
-
-#terraform init
-#terraform plan
-#terraform apply
-
- 
+ cd .. 
+  
 #======================================================
 
 sudo hostnamectl set-hostname "TFNode"
@@ -61,13 +53,37 @@ cat ~/.ssh/authorized_keys
  
  
 
-out=$(curl ifconfig.me  )
-ssh $out -o  StrictHostKeyChecking=no  -o ControlMaster=no  </dev/null
-exit
- 
- 
-## Create key in aws
 
-## scp -i .\25july.pem .\src\* ubuntu@52.90.67.80:~/tf/
-## cp ~/.ssh/custkey.pvt  ~/myscripts
  
+
+
+ 
+ ############################################################
+ 
+# from window
+# scp -i .\25july.pem .\src\* ubuntu@$out:~/tf/
+ 
+ #cmdd2="sudo echo   export PATH=$PATH:/home/ubuntu/tf  | sudo -S tee -a ~/.bashrc"
+ #ssh -i ..\25july.pem  ubuntu@$out  "$cmdd2"
+## or 
+ #sudo vi ~/.bashrc
+ ##export PATH=$PATH:/home/ubuntu/tf
+ 
+ # cp ~/.ssh/custkey.pvt  ~/myscripts
+#  cp ~/tf/deployansible.sh   ~/myscripts/deployansible.sh 
+ #  cp ~/tf/sub1.sh   ~/myscripts/sub1.sh 
+   
+    ############################################################
+	
+	
+	## Create key in aws
+
+	
+   ############################################################
+	
+## Go to ~/tf	
+##	terraform init
+##	terraform plan
+##   terraform apply
+   
+exit
